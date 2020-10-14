@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Growing Box</title>
+
+    <style>
+        .myBox{
+            border: 3px solid red;
+            background-color: lightgray;
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Initial width and height values for the box
+            let WIDTH = 100;
+            let HEIGHT = 100;
+            // Grow amount
+            let GROW = 5;
+
+            const myBox = document.querySelector('.myBox');
+
+            // Set an interval to call the grow function every 200 milliseconds
+            const myTimer = setInterval(grow, 200);
+
+            function grow() {
+                WIDTH += GROW;
+                HEIGHT += GROW;
+                myBox.style.width = WIDTH + 'px';
+                myBox.style.height = HEIGHT + 'px';
+
+                // Clear the interval after width exceeds 300(px)
+                if (WIDTH > 300){
+                    clearInterval(myTimer);
+                }
+            }
+        });
+
+
+
+    </script>
+</head>
+<body>
+    <div class="myBox"></div>
+</body>
+</html>
